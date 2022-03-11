@@ -5,6 +5,10 @@ USE world;
 
 select ID,Name,Population from city order by Population desc limit 10;
 
+<<<<<<< HEAD
+=======
+select ID,Name,Population from city order by Population desc limit 10;
+>>>>>>> 63987874f847c5c6f5ffdfd680f691eb0177a7fb
 -- 2. The same as in 1, but now only rows from 16 to 20.
 
 select ID,Name,Population from city order by Population desc limit 16,4;
@@ -17,19 +21,34 @@ select  distinct count(*) from city;
 
 select * from city order by population desc limit 1;
 
+<<<<<<< HEAD
 select name,population from city where population = (select max(population) from city);
+=======
+>>>>>>> 63987874f847c5c6f5ffdfd680f691eb0177a7fb
 -- 5. Show name and population from the least populated city in the table.
 
 select name,population from city order by population limit 1;
 
+<<<<<<< HEAD
 
 select name,population from city where population = (select min(population) from city);
+=======
+>>>>>>> 63987874f847c5c6f5ffdfd680f691eb0177a7fb
 -- 6. Show name and population from the most and the least populated cities in the table.
 
 SELECT Name, Population from city
 WHERE Population = (SELECT MAX(Population) FROM city)
 OR Population = (SELECT MIN(Population) FROM city);
 
+<<<<<<< HEAD
+=======
+select name,population from city 
+where population = (select max(population) from city);
+
+select name,population from city 
+where population = (select min(population) from city);
+
+>>>>>>> 63987874f847c5c6f5ffdfd680f691eb0177a7fb
 -- 7. All cities (name and population) with a population above one million people.
 
 select name, population from city where population > 1000000;
@@ -52,7 +71,11 @@ select sum(population),name from city where District = "New York";
 
 -- 12. Select every district from USA with its total number of people.
 
+<<<<<<< HEAD
 select district,sum(population) from city where CountryCode = "USA"group by district;
+=======
+select sum(population) from city where CountryCode = "USA";
+>>>>>>> 63987874f847c5c6f5ffdfd680f691eb0177a7fb
 
 -- 13. Select all districts from USA which have population over 3 million people
 
@@ -76,6 +99,7 @@ select name, capital from country where Capital is null;
 
 -- 16. Select all country names with its number of cities (two ways: subquery and join).
 
+<<<<<<< HEAD
 select CountryCode,count(*) from city group by CountryCode;
 
 -- buena
@@ -97,6 +121,13 @@ join country c on c.code = d.code;
 select co.Name, c.Name 
 from country co
 left join city c on co.Capital = c.ID; 
+=======
+select name,count(city) from country;
+
+-- 17. Select all country names with its capital name (two ways: subquery and join).
+
+
+>>>>>>> 63987874f847c5c6f5ffdfd680f691eb0177a7fb
 
 -- 18. Select repeated cities names and the number of repetition
 
