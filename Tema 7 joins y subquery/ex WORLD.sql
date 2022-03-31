@@ -164,11 +164,30 @@ or LifeExpectancy = (select min(LifeExectancy) from country);
 
 
 -- 22. Select the average population from all countries
-
+select avg(population) from country;
 -- 23. Select name, continent and population from countries with a population lower than the average population from all countries 
+
+select name, continent, population 
+from country where population < (select avg(population) from country);
 
 -- 24. Select the total area from every continent
 
+select sum(SurfaceArea),Continent from country group by Continent;
+
 -- 25. Select the number of countries for every different government form (ordered from the most common government form to the least common one)
 
+
+select GovernmentForm, count(Code) as Countries 
+from country
+group by GovernmentForm 
+order by count(Code) desc;
+
 -- 26. What is the most common government form? (Build a query to answer this question)
+
+select GovernmentForm, count(Code) as Countries 
+from country
+group by GovernmentForm 
+order by count(Code) desc
+limit 1;
+
+
